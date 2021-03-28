@@ -16,10 +16,12 @@ import {
   Text,
   useColorScheme,
   View,
-  Button
+  Button,
+  ToastAndroid,
+  Vibration,
+  PermissionsAndroid
 } from 'react-native';
-import Toast2 from 'react-native-simple-toast';
-import Toast from 'react-native-toast-message';
+
 
 import {
   Colors,
@@ -29,16 +31,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import api from './src/services/api'
 
-
-const signIn = () => {
-  React.useEffect(() => {
-    Toast.show();
-  }, []);
-
-  return;
-};
 
 
 const Section = ({ children, title }): Node => {
@@ -74,6 +67,18 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+
+  const testepress = () => {
+    console.log('oioioi');
+  };
+
+  const showToast = () => {
+    ToastAndroid.show("Vaaai Bulbasauroooooo!!!", ToastAndroid.LONG, ToastAndroid.CENTER);
+  };
+
+  const ONE_SECOND_IN_MS = 1000;
+
+
   return (
 
 
@@ -100,7 +105,9 @@ const App: () => Node = () => {
         </View> */}
         <View style={styles.postContainer}>
           <Text>  Amet enim in incididunt sit anim consectetur fugiat sit Lorem magna nostrud sit.</Text>
-          <Button onPress={this.signIn} style={{ marginVertical: 10, backgroundColor: Colors.black }} title="Entrar" />
+          <Button onPress={() => showToast()} style={{ marginVertical: 10, backgroundColor: Colors.black, borderRadius: 3 }} title="Entrar" />
+          
+          <Button title="Vibracall" onPress={() => Vibration.vibrate()} />
         </View>
       </View>
 
