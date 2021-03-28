@@ -16,6 +16,7 @@
     "mysql2": "^2.2.5",
     "react": "17.0.1",
     "react-native": "0.64.0",
+    "react-native-permissions": "^3.0.1",
     "react-native-toast-message": "^1.4.9",
     "sequelize": "^6.6.2"
   },
