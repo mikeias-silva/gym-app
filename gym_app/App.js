@@ -84,16 +84,16 @@ const App = () => {
 
   const ONE_SECOND_IN_MS = 1000;
 
-  const PATTERN = [
-    1 * ONE_SECOND_IN_MS,
-    2 * ONE_SECOND_IN_MS,
-    3 * ONE_SECOND_IN_MS
-  ];
+  // const PATTERN = [
+  //   1 * ONE_SECOND_IN_MS,
+  //   2 * ONE_SECOND_IN_MS,
+  //   3 * ONE_SECOND_IN_MS
+  // ];
 
-  const PATTERN_DESC =
-    Platform.OS === "android"
-      ? "wait 1s, vibrate 2s, wait 3s"
-      : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
+  // const PATTERN_DESC =
+  //   Platform.OS === "android"
+  //     ? "wait 1s, vibrate 2s, wait 3s"
+  //     : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
 
   return (
 
@@ -122,16 +122,9 @@ const App = () => {
         <View style={styles.postContainer}>
           <Text onPress={() => Vibration.vibrate()}>  Amet enim in incididunt sit anim consectetur fugiat sit Lorem magna nostrud sit.</Text>
           <Button onPress={() => showToast()} style={{ marginVertical: 10, backgroundColor: Colors.black, borderRadius: 3 }} title="Entrar" />
-
-          <Text title="Vibracall" onPress={() => Vibration.vibrate()}>texto</Text>
+          
         </View>
       </View>
-
-
-
-
-
-
     </ScrollView>
 
 
