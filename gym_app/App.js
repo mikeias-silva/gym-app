@@ -19,7 +19,8 @@ import {
   Button,
   ToastAndroid,
   Vibration,
-  PermissionsAndroid
+  PermissionsAndroid,
+  Platform
 } from 'react-native';
 
 
@@ -32,9 +33,11 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 
+const Separator = () => {
+  return <View style={Platform.OS === "android" ? styles.separator : null} />;
+}
 
-
-const Section = ({ children, title }): Node => {
+const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -60,7 +63,7 @@ const Section = ({ children, title }): Node => {
   );
 };
 
-const App: () => Node = () => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -73,11 +76,24 @@ const App: () => Node = () => {
   };
 
   const showToast = () => {
-    ToastAndroid.show("Vaaai Bulbasauroooooo!!!", ToastAndroid.LONG, ToastAndroid.CENTER);
+    ToastAndroid.show("Vaaai Bulbasauroo!!!", ToastAndroid.LONG, ToastAndroid.CENTER);
+    Vibration.vibrate();
   };
+
+
 
   const ONE_SECOND_IN_MS = 1000;
 
+  const PATTERN = [
+    1 * ONE_SECOND_IN_MS,
+    2 * ONE_SECOND_IN_MS,
+    3 * ONE_SECOND_IN_MS
+  ];
+
+  const PATTERN_DESC =
+    Platform.OS === "android"
+      ? "wait 1s, vibrate 2s, wait 3s"
+      : "wait 1s, vibrate, wait 2s, vibrate, wait 3s";
 
   return (
 
@@ -104,10 +120,10 @@ const App: () => Node = () => {
           <LearnMoreLinks />
         </View> */}
         <View style={styles.postContainer}>
-          <Text>  Amet enim in incididunt sit anim consectetur fugiat sit Lorem magna nostrud sit.</Text>
+          <Text onPress={() => Vibration.vibrate()}>  Amet enim in incididunt sit anim consectetur fugiat sit Lorem magna nostrud sit.</Text>
           <Button onPress={() => showToast()} style={{ marginVertical: 10, backgroundColor: Colors.black, borderRadius: 3 }} title="Entrar" />
-          
-          <Button title="Vibracall" onPress={() => Vibration.vibrate()} />
+
+          <Text title="Vibracall" onPress={() => Vibration.vibrate()}>texto</Text>
         </View>
       </View>
 
