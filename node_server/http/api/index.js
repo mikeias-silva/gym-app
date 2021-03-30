@@ -18,7 +18,7 @@ function writeFile(cb) {
 
 
 http.createServer((req, res) => {
-
+    res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
     //console.log(URL.parse(req.url, true).query)
 
     const { name, url, del } = URL.parse(req.url, true).query

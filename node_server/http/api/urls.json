@@ -3,6 +3,10 @@
     {
       "name": "youtube",
       "url": "http://youtube.com.br"
+    },
+    {
+      "name": "google",
+      "url": "http://google.com"
     }
   ]
 }
