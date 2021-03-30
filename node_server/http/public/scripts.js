@@ -42,6 +42,7 @@ form.addEventListener("submit", (event) => {
         return alert("Digite a url da maneira correta")
 
     addElement({ name, url })
+   
 
     input.value = ""
 })
