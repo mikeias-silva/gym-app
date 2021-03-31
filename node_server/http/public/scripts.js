@@ -36,7 +36,7 @@ function addElement({ name, url }) {
 }
 
 function removeElement(el) {
-    if (confirm('Tem certeza que deseja deletar?'))
+    if (confirm('Tem certeza que deseja deletar???'))
         el.parentNode.remove()
 }
 
