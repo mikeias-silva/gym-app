@@ -1,0 +1,9 @@
+authtoken: **
+tunnels:
+  first-app:
+    addr: 3000
+    proto: http
+  second-app:
+    addr: 5000
+    proto: http
+   

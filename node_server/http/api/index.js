@@ -18,7 +18,14 @@ function writeFile(cb) {
 
 
 http.createServer((req, res) => {
-    res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
+    res.writeHead(200, {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers': '*'
+    })
+
+    // res.writeHead(200, { 'Access-Control-Allow-Methods': '*' })
+    // res.writeHead(200, { 'Access-Control-Allow-Headers': '*' })
     //console.log(URL.parse(req.url, true).query)
 
     const { name, url, del } = URL.parse(req.url, true).query
@@ -38,7 +45,7 @@ http.createServer((req, res) => {
     }
 
 
-    data.urls.push({name, url})
+    data.urls.push({ name, url })
 
     return writeFile((message) => res.end(message))
 
