@@ -1,4 +1,6 @@
 const os = require('os')
+const log = require('./logger')
+
 
 setInterval(() => {
     const freemem = os.freemem
@@ -10,13 +12,17 @@ setInterval(() => {
 
 
     const stats = {
-        freemem: `${mem} MB`,
+        free: `${mem} MB`,
         total: `${total} MB`,
         usage: `${percents}%`
     }
 
-    console.clear()
-    console.log("======>Status memoria<========")
-    console.table(stats)
-}, 2000)
+    // console.clear()
+    // console.log("======>Status memoria<========")
+    // console.table(stats)
+
+    
+    log(`${JSON.stringify(stats)}\n`)
+}, 1000)
+
 
