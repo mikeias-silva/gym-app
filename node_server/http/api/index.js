@@ -5,16 +5,7 @@ const data = require('./urls.json')
 const URL = require('url')
 
 
-function writeFile(cb) {
-    return fs.writeFile(
-        path.join(__dirname, "urls.json"),
-        JSON.stringify(data, null, 2),
-        err => {
-            if (err) throw err
-            cb(JSON.stringify({ message: "ok" }))
-        }
-    )
-}
+
 
 
 http.createServer((req, res) => {
@@ -23,10 +14,6 @@ http.createServer((req, res) => {
         'Access-Control-Allow-Methods': '*',
         'Access-Control-Allow-Headers': '*'
     })
-
-    // res.writeHead(200, { 'Access-Control-Allow-Methods': '*' })
-    // res.writeHead(200, { 'Access-Control-Allow-Headers': '*' })
-    //console.log(URL.parse(req.url, true).query)
 
     const { name, url, del } = URL.parse(req.url, true).query
 
@@ -50,4 +37,15 @@ http.createServer((req, res) => {
     return writeFile((message) => res.end(message))
 
 
-}).listen(3000, () => console.log('server 3000 ta on'))
+}).listen(5001, () => console.log('server 3000 ta on'))
+
+function writeFile(cb) {
+    return fs.writeFile(
+        path.join(__dirname, "urls.json"),
+        JSON.stringify(data, null, 2),
+        err => {
+            if (err) throw err
+            cb(JSON.stringify({ message: "ok" }))
+        }
+    )
+}
